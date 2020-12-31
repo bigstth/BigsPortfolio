@@ -2,14 +2,14 @@
   <div class="container">
     <div class="backgroundOverlay"></div>
     <div class="middleBox">
-      <h1>PORTFOLIO</h1>
-      <p>Sitthi Thammawong</p>
+      <h1>{{ siteHeader.title }}</h1>
+      <p>{{ siteHeader.description }}</p>
       <Button class="middleBtn" type="default" ghost
         ><Icon
-          type="ios-information-circle-outline"
+          :type="siteHeader.buttonIcon"
           size="24"
           style="padding-right: 0.3rem"
-        />Discover More</Button
+        />{{ siteHeader.buttonText }}</Button
       >
     </div>
   </div>
@@ -17,7 +17,18 @@
 
 <script>
 import '@/assets/main.css'
-export default {}
+export default {
+  data() {
+    return {
+      siteHeader: {
+        title: 'PORTFOLIO',
+        description: 'Sitthi Thammawong',
+        buttonText: 'Discover More',
+        buttonIcon: 'ios-information-circle-outline',
+      },
+    }
+  },
+}
 </script>
 
 <style lang="css" scoped>

@@ -2,7 +2,9 @@
   <div class="footer">
     <div class="footerBox">
       <div class="">
-        <img src="~/assets/images/logo.png" alt="Sitthi's Portfolio Logo" />
+        <Nuxt-link :to="logo.to">
+          <img :src="logo.url" alt="Sitthi's Portfolio Logo" class="logoFooter"
+        /></Nuxt-link>
       </div>
       <div class="socialIcons">
         <div
@@ -23,6 +25,10 @@
 export default {
   data() {
     return {
+      logo: {
+        url: require('@/assets/images/logo.png'),
+        to: { name: 'index' },
+      },
       socialIcons: [
         {
           id: 1,
@@ -48,6 +54,7 @@ export default {
 <style lang="css" scoped>
 .footer {
   background-color: #1c1d1f;
+  position: relative;
 }
 .footerBox {
   display: flex;
@@ -55,6 +62,9 @@ export default {
   align-items: center;
   padding: 72px 0px;
   flex-direction: column;
+}
+.logoFooter {
+  padding-bottom: 32px;
 }
 .socialIcons {
   display: flex;

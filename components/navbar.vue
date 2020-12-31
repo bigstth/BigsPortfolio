@@ -1,20 +1,21 @@
 <template lang="html">
-  <div class="">
+  <Row type="flex" justify="space-between" class="mainTopbar">
+    <div class="siteName">
+      <Nuxt-link :to="logo.to">
+        <img :src="logo.url" alt="Sitthi's Portfolio Logo"
+      /></Nuxt-link>
+    </div>
     <Menu
       mode="horizontal"
       theme="light"
       active-name="1"
+      width="auto"
+      class="menuLists"
       :style="{
-        display: 'flex',
-        justifyContent: 'space-between',
         backgroundColor: 'transparent',
         border: 'none',
-        flexWrap: 'wrap',
       }"
     >
-      <div class="siteName">
-        <img src="~/assets/images/logo.png" alt="Sitthi's Portfolio Logo" />
-      </div>
       <div class="siteMenus">
         <MenuItem
           v-for="item in menuItems"
@@ -27,13 +28,17 @@
         </MenuItem>
       </div>
     </Menu>
-  </div>
+  </Row>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      logo: {
+        url: require('@/assets/images/logo.png'),
+        to: { name: 'index' },
+      },
       menuItems: [
         {
           id: 1,
@@ -69,10 +74,19 @@ export default {
 .siteName {
   color: white;
   padding: 0.6rem 2rem;
+  z-index: 990;
 }
 .ivu-menu-item {
   color: white !important;
   border: none !important;
+  font-size: 0.75rem;
+}
+.siteMenus {
+  display: flex;
+  flex-wrap: wrap;
+}
+.menuLists {
+  display: block;
 }
 .ivu-menu-item:hover {
   color: #ccc !important;
@@ -86,5 +100,9 @@ export default {
 }
 .ivu-menu-horizontal.ivu-menu-light:after {
   background: none;
+}
+@media screen and (max-width: 830px) {
+  .menuLists {
+  }
 }
 </style>

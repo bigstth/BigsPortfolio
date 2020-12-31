@@ -3,23 +3,40 @@
     <div class="backgroundOverlay"></div>
     <div class="middleBox">
       <div class="title">
-        <h2 class="headerTitle"><slot name="headerTitle">title</slot></h2>
+        <h2 class="headerTitle">
+          <slot name="headerTitle">{{ defaultTitleName }}</slot>
+        </h2>
       </div>
       <div class="breadCrumbs">
-        <div class="breadText">Home</div>
-        <p :style="{ color: '#ccc', padding: '0px 12px' }">
-          <Icon type="ios-arrow-forward" />
-        </p>
-        <div class="pageText">
-          <slot name="navigationName">page</slot>
-        </div>
+        <Breadcrumb separator=">">
+          <BreadcrumbItem :to="{ name: 'index' }"
+            ><span :style="{ color: '#ccc' }">{{
+              mainPage
+            }}</span></BreadcrumbItem
+          >
+          <BreadcrumbItem>
+            <span :style="{ color: '#ccc' }"
+              ><slot name="navigationName">{{
+                defaultBreadcrumbName
+              }}</slot></span
+            ></BreadcrumbItem
+          >
+        </Breadcrumb>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      defaultTitleName: `Sitthi's Portfolio`,
+      mainPage: 'Home',
+      defaultBreadcrumbName: 'Page',
+    }
+  },
+}
 </script>
 
 <style lang="css" scoped>
@@ -50,12 +67,7 @@ export default {}
   padding-bottom: 1.5rem;
   display: flex;
 }
-.breadText {
-  color: #ccc;
-}
-.pageText {
-  color: white;
-}
+
 .headerTitle {
   font-family: 'Montserrat';
   font-size: 25px;
