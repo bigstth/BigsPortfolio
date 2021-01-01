@@ -14,6 +14,7 @@ export default {
     textAlignTitle: {
       type: String,
       required: false,
+      default: 'center',
     },
   },
 }

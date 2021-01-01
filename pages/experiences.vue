@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="exp-container">
     <subpageHeader class="subpageHeader">
-      <template slot="headerTitle">Experiences</template>
-      <template slot="navigationName">Experiences</template>
+      <template slot="headerTitle">{{ pageInfo.title }}</template>
+      <template slot="navigationName">{{ pageInfo.navigationName }}</template>
     </subpageHeader>
     <Row class="expCardSection">
       <div v-for="expCardInfo in expCardInfos" :key="expCardInfo.id" class="">
@@ -19,12 +19,21 @@
 import subpageHeader from '@/components/subpageHeader'
 import experienceCard from '@/components/text-items/experienceCard'
 export default {
+  head() {
+    return this.$headUtil({
+      title: `Sitthi's Portfolio | Experiences`,
+    })
+  },
   components: {
     subpageHeader,
     experienceCard,
   },
   data() {
     return {
+      pageInfo: {
+        title: 'Experiences',
+        navigationName: 'Experiences',
+      },
       expCardInfos: [
         {
           id: 1,

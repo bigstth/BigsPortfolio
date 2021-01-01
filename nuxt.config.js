@@ -14,7 +14,7 @@ export default {
   css: ['iview/dist/styles/iview.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['@/plugins/iview'],
+  plugins: ['@/plugins/iview', '@/plugins/head-utils.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

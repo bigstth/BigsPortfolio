@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="info-container">
     <subpageHeader class="subpageHeader">
-      <template slot="headerTitle">Personal Information</template>
-      <template slot="navigationName">Info</template>
+      <template slot="headerTitle">{{ pageInfo.title }}</template>
+      <template slot="navigationName">{{ pageInfo.navigationName }}</template>
     </subpageHeader>
     <infoBox :profileInfo="profileInfo"></infoBox>
     <skillsBox></skillsBox>
@@ -14,6 +14,11 @@ import subpageHeader from '@/components/subpageHeader'
 import infoBox from '@/components/my-info/infoBox'
 import skillsBox from '@/components/my-info/skillsBox'
 export default {
+  head() {
+    return this.$headUtil({
+      title: `Sitthi's Portfolio | Information`,
+    })
+  },
   components: {
     subpageHeader,
     infoBox,
@@ -21,6 +26,10 @@ export default {
   },
   data() {
     return {
+      pageInfo: {
+        title: 'Personal Information',
+        navigationName: 'Info',
+      },
       profileInfo: {
         profilePic: require('@/assets/images/me.jpg'),
         name: 'Sitthi Thammawong',

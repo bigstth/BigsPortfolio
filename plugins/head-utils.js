@@ -8,7 +8,7 @@ export default (_, inject) => {
       {
         hid: 'description',
         name: 'description',
-        contnt:
+        content:
           data.description ||
           `Sitthi's Portfolio รวบรวมผลงานที่การทำเว็บไซต์ โมบายแอพพลิเคชั่น ทั้งด้าน Frontend และ Backend`,
       },

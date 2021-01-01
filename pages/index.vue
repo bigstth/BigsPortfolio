@@ -4,12 +4,12 @@
     <div class="middleBox">
       <h1>{{ siteHeader.title }}</h1>
       <p>{{ siteHeader.description }}</p>
-      <Button class="middleBtn" type="default" ghost
+      <Button :to="siteHeader.button.to" class="middleBtn" type="default" ghost
         ><Icon
-          :type="siteHeader.buttonIcon"
+          :type="siteHeader.button.icon"
           size="24"
           style="padding-right: 0.3rem"
-        />{{ siteHeader.buttonText }}</Button
+        />{{ siteHeader.button.name }}</Button
       >
     </div>
   </div>
@@ -23,8 +23,11 @@ export default {
       siteHeader: {
         title: 'PORTFOLIO',
         description: 'Sitthi Thammawong',
-        buttonText: 'Discover More',
-        buttonIcon: 'ios-information-circle-outline',
+        button: {
+          name: 'Discover More',
+          to: { name: 'info' },
+          icon: 'ios-information-circle-outline',
+        },
       },
     }
   },
@@ -74,8 +77,8 @@ export default {
 .middleBox .middleBtn:hover {
   font-family: 'Montserrat';
   color: black;
-  border-color: #ccc;
-  background-color: #ccc;
+  border-color: #fff;
+  background-color: #fff;
   font-size: 0.8rem;
   padding: 0.7rem 2rem;
   margin: 0px 0.5rem;

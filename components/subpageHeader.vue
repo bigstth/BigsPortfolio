@@ -21,6 +21,13 @@
               }}</slot></span
             ></BreadcrumbItem
           >
+          <BreadcrumbItem v-if="navigationName2">
+            <span :style="{ color: '#ccc' }"
+              ><slot name="navigationName2">{{
+                defaultBreadcrumbName2
+              }}</slot></span
+            ></BreadcrumbItem
+          >
         </Breadcrumb>
       </div>
     </div>
@@ -29,11 +36,25 @@
 
 <script>
 export default {
+  props: {
+    navigationNameTwo: {
+      type: String,
+      required: false,
+      default: 'false',
+    },
+  },
   data() {
     return {
       defaultTitleName: `Sitthi's Portfolio`,
       mainPage: 'Home',
       defaultBreadcrumbName: 'Page',
+      defaultBreadcrumbName2: 'Page2',
+      navigationName2: null,
+    }
+  },
+  mounted() {
+    if (this.navigationNameTwo === 'true') {
+      this.navigationName2 = true
     }
   },
 }
