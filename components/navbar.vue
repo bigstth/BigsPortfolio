@@ -5,6 +5,11 @@
         <img :src="logo.url" alt="Sitthi's Portfolio Logo"
       /></Nuxt-link>
     </div>
+    <div class="mobileMenu">
+      <Button type="default" ghost @click="mobileMenuShow"
+        ><Icon type="md-menu"
+      /></Button>
+    </div>
     <Menu
       mode="horizontal"
       theme="light"
@@ -12,21 +17,20 @@
       width="auto"
       class="menuLists"
       :style="{
-        backgroundColor: 'transparent',
         border: 'none',
+        display: mobileMenu,
       }"
     >
-      <div class="siteMenus">
-        <MenuItem
-          v-for="item in menuItems"
-          :key="item.id"
-          :name="item.id"
-          :to="item.to"
-        >
-          <Icon :type="item.icon" />
-          {{ item.name }}
-        </MenuItem>
-      </div>
+      <MenuItem
+        v-for="item in menuItems"
+        :key="item.id"
+        :name="item.id"
+        :to="item.to"
+        class="menuItem"
+      >
+        <Icon :type="item.icon" />
+        {{ item.name }}
+      </MenuItem>
     </Menu>
   </Row>
 </template>
@@ -35,6 +39,7 @@
 export default {
   data() {
     return {
+      mobileMenu: 'flex',
       logo: {
         url: require('@/assets/images/logo.png'),
         to: { name: 'index' },
@@ -67,6 +72,15 @@ export default {
       ],
     }
   },
+  methods: {
+    mobileMenuShow() {
+      if (this.mobileMenu.includes('flex')) {
+        this.mobileMenu = 'none !important'
+      } else {
+        this.mobileMenu = 'flex !important'
+      }
+    },
+  },
 }
 </script>
 
@@ -74,19 +88,17 @@ export default {
 .siteName {
   color: white;
   padding: 0.6rem 2rem;
-  z-index: 990;
 }
-.ivu-menu-item {
+.menuItem {
   color: white !important;
   border: none !important;
   font-size: 0.75rem;
 }
-.siteMenus {
+.menuLists {
   display: flex;
   flex-wrap: wrap;
-}
-.menuLists {
-  display: block;
+  background: transparent;
+  transition: 0.5s;
 }
 .ivu-menu-item:hover {
   color: #ccc !important;
@@ -101,8 +113,29 @@ export default {
 .ivu-menu-horizontal.ivu-menu-light:after {
   background: none;
 }
-@media screen and (max-width: 830px) {
+.mobileMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 10px 0px;
+  display: none;
+}
+@media screen and (max-width: 820px) {
+  .mobileMenu {
+    display: flex;
+  }
   .menuLists {
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+    display: none !important;
+  }
+  .mainTopbar {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .menuItem {
+    flex: 100%;
+    background: rgba(0, 0, 0, 0.8);
   }
 }
 </style>

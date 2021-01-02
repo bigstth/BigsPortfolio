@@ -1,0 +1,23 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker pull gcr.io/bigsportfolio/portfolio-cloud-build:latest || exit 0
+  - name: gcr.io/cloud-builders/docker
+    timeout: 1200s
+    args:
+      [
+        'build',
+        '-f',
+        'Dockerfile',
+        '-t',
+        'gcr.io/bigsportfolio/portfolio-cloud-build',
+        '--cache-from',
+        'gcr.io/bigsportfolio/portfolio-cloud-build:latest',
+        '.',
+      ]
+timeout: 1200s
+images:
+  - gcr.io/bigsportfolio/portfolio-cloud-build

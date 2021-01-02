@@ -32,5 +32,6 @@ html {
 .mainTopbar {
   position: absolute;
   width: 100%;
+  z-index: 999;
 }
 </style>
