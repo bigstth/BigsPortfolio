@@ -7,10 +7,11 @@
       <Button :to="siteHeader.button.to" class="middleBtn" type="default" ghost
         ><Icon
           :type="siteHeader.button.icon"
-          size="2sasadsadsadasdassasa23"
+          size="23"
           style="padding-right: 0.3rem,font-weight:700;"
         />{{ siteHeader.button.name }}</Button
       >
+      Hello Hello2
     </div>
   </div>
 </template>
