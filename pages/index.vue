@@ -8,7 +8,7 @@
         ><Icon
           :type="siteHeader.button.icon"
           size="24"
-          style="padding-right: 0.3rem"
+          style="padding-right: 0.3rem,font-weight:700;"
         />{{ siteHeader.button.name }}</Button
       >
     </div>

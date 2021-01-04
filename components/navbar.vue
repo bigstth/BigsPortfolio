@@ -93,6 +93,7 @@ export default {
   color: white !important;
   border: none !important;
   font-size: 0.75rem;
+  font-weight: 600;
 }
 .menuLists {
   display: flex;
@@ -109,6 +110,7 @@ export default {
   color: #ccc !important;
   border-top: 2px solid #ccc !important;
   border-bottom: none !important;
+  font-weight: 600;
 }
 .ivu-menu-horizontal.ivu-menu-light:after {
   background: none;

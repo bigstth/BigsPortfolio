@@ -1,4 +1,4 @@
-FROM node:13.6-alpine
+FROM node:14.15.13
 
 ARG BUILD_ENV
 
