@@ -7,7 +7,7 @@
       <Button :to="siteHeader.button.to" class="middleBtn" type="default" ghost
         ><Icon
           :type="siteHeader.button.icon"
-          size="223"
+          size="2sasadsadsadasdassasa23"
           style="padding-right: 0.3rem,font-weight:700;"
         />{{ siteHeader.button.name }}</Button
       >
