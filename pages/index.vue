@@ -11,7 +11,7 @@
           style="padding-right: 0.3rem,font-weight:700;"
         />{{ siteHeader.button.name }}</Button
       >
-      Hello Hello2
+      Hello Hello2 2
     </div>
   </div>
 </template>
