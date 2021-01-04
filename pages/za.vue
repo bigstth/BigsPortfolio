@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">hi za</div>
+  <div class="">hi zasadasdasdasdasdsasa</div>
 </template>
 
 <script>
