@@ -13,7 +13,7 @@
     <Menu
       mode="horizontal"
       theme="light"
-      active-name="1"
+      active-name="2"
       width="auto"
       class="menuLists"
       :style="{
