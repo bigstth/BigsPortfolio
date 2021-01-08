@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       siteHeader: {
-        title: 'PORTFOLIO',
+        title: 'PORTFOLIOzz',
         description: 'Sitthi Thammawong',
         button: {
           name: 'Discover More',
